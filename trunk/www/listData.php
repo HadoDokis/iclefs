@@ -5,7 +5,7 @@ $fournisseurDonneesSet = new FournisseurDonneesSet();
 $fd_list = $fournisseurDonneesSet->getAllFD($franceConnect);
 
 foreach($fd_list as $fd){
-	$result[$fd->getId()] = $fd->getAllInfo();
+	$result[] = $fd->getAllInfo();
 }
 
 echo json_encode($result);

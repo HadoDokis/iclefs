@@ -21,6 +21,7 @@ abstract class FournisseurDonnees {
 	
 	public function getAllInfo(){
 		return array(
+				"fd_id" => $this->getId(),
 				"fd_name" => $this->getName(),
 				"fd_provided_info" =>$this->getProvidedInfo(),
 				);
