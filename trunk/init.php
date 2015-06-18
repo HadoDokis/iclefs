@@ -5,6 +5,10 @@ require_once(__DIR__."/lib/CurlWrapper.class.php");
 require_once(__DIR__."/lib/FranceConnect.class.php");
 require_once(__DIR__."/lib/FDTest.class.php");
 require_once(__DIR__."/lib/FDGuichetBreton.class.php");
+require_once(__DIR__."/lib/FDEtatCivil.class.php");
+
+require_once(__DIR__."/lib/FDEtatCivil.class.php");
+
 
 require_once("LocalSettings.php");
 
