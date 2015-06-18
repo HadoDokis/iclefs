@@ -56,7 +56,7 @@ angular.module( 'iClefs.form', [
       $scope.selectedData = {};
 
       var initCtrl = function() {
-        $http.get('/test/listData.php').then(function(response) {
+        $http.get(context + 'listData.php').then(function(response) {
           $scope.dataAvailable = response.data;
         });
       };
@@ -109,7 +109,7 @@ angular.module( 'iClefs.form', [
       $scope.postData = function() {
         $scope.formSent = true;
         $scope.formulaire.data = $scope.selectedData;
-        $http.post('/test/createButton.php', $scope.formulaire).success(function(data) {
+        $http.post(context + 'createButton.php', $scope.formulaire).success(function(data) {
           $scope.buttonCreated = data;
           $scope.formBack = true;
         }).error(function(data) {
