@@ -16,10 +16,12 @@ if ($id_btn == -1){
 		$_SESSION['fd_user_info'][$fd->getId()] = $fd->getInfo($access_token);
 	}
 	header("Location: test.php");
+	exit;
 } 
 	
 $buttonDataSQL = new ButtonDataSQL($sqlQuery);
 $fd_id_list = $buttonDataSQL->getIdFDList($id_btn);
+
 foreach($fd_id_list as $fd_id){
 	if (empty($fd_list[$fd_id])){
 		continue;

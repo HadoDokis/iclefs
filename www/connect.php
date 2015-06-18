@@ -25,7 +25,7 @@ try {
 	
 	$scope = array_keys($scope);
 	
-	$franceConnect->authenticationRedirect($url_callback,$scope);
+	$franceConnect->authenticationRedirect($url_callback,$scope,$id_btn);
 
 } catch (Exception $e){
 	header("HTTP/1.1 500 Internal Server Error");
