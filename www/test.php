@@ -1,4 +1,6 @@
-<?php include(__DIR__."/../init.php"); ?>
+<?php include(__DIR__."/../init.php"); 
+//test
+?>
 
 <html>
 <head>
