@@ -29,7 +29,7 @@ class FranceConnect {
 	
 	public function authenticationRedirect($url_callback, $sup_scope = array(),$id_btn = -1){
 		$_SESSION[self::OPENID_SESSION_TOKEN] = $this->getRandomToken();
-		$state = "token={$_SESSION[self::OPENID_SESSION_TOKEN]}&id_btn=-1";
+		$state = "token={$_SESSION[self::OPENID_SESSION_TOKEN]}&id_btn=$id_btn";
 		
 		$_SESSION[self::OPENID_SESSION_NONCE] = $this->getRandomToken();
 		
