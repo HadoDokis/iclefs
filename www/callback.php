@@ -15,7 +15,7 @@ if ($id_btn == -1){
 	foreach($fd_list as $fd){
 		$_SESSION['fd_user_info'][$fd->getId()] = $fd->getInfo($access_token);
 	}
-	header("Location: index.php");
+	header("Location: test.php");
 	
 } 
 	
@@ -28,7 +28,9 @@ foreach($fd_id_list as $fd_id){
 	$fd = $fd_list[$fd_id];
 	$_SESSION['fd_user_info'][$fd->getId()] = $fd->getInfo($access_token);
 
-	header("Location: index.php");
+	//TODO send mail
+	
+	header("Location: test.php");
 	
 }
 	
