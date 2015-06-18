@@ -11,13 +11,13 @@ class FDCAFQF extends FournisseurDonnees {
 	}
 
 	public function getScope(){
-		return "caf_qf";
+		return "ods_caf_qf";
 	}
 
 	public function getProvidedInfo(){
 		return array(
 				"nombre_d_enfants"=>"Nombre d'enfant",
-			    "sexe"=>"SQexe",
+			    "sexe"=>"Sexe",
 			    "date_de_naissance"=>"Date de naissance",
 			    "quotient_familial"=>"Quotient familial",
 			    "hypothese_caf"=>"Hypothèse CAF",

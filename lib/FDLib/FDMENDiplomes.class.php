@@ -11,7 +11,7 @@ class FDMENDiplomes extends FournisseurDonnees {
 	}
 
 	public function getScope(){
-		return "men_diplome";
+		return "ods_men_diplomes";
 	}
 
 	public function getProvidedInfo(){

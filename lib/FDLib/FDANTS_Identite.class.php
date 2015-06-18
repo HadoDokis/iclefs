@@ -1,10 +1,10 @@
 <?php
-//https://datafranceconnect.opendatasoft.com/api/records/1.0/search?dataset=ants_identite
 
+//https://datafranceconnect.opendatasoft.com/explore/dataset/ants_identite/?tab=metas
 class FDANTS_Identite extends FournisseurDonnees {
 
 	public function getId(){
-		return "fd_ants_identite";
+		return "ants_identite";
 	}
 
 	public function getName(){
@@ -12,7 +12,7 @@ class FDANTS_Identite extends FournisseurDonnees {
 	}
 
 	public function getScope(){
-		return "ants_identite";
+		return "ods_ants_identite";
 	}
 
 	public function getProvidedInfo(){
