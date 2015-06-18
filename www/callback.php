@@ -1,7 +1,7 @@
 <?php
 require_once(__DIR__."/../init.php");
 
-//$_SESSION['user_info'] = $franceConnect->callback();
+$_SESSION['user_info'] = $franceConnect->callback();
 $access_token = $_SESSION['user_info']['access_token']; 
 
 
@@ -66,7 +66,7 @@ ob_end_clean();
 $mailHTML->setHTMLContent($content);
 $mailHTML->send();
 
-//header("Location: " . $info_button['url_callback']);
+header("Location: " . $info_button['url_callback']);
 
 	
 
