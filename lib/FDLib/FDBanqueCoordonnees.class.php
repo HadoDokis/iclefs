@@ -16,15 +16,15 @@ class FDBanqueCoordonnees extends FournisseurDonnees {
 
 	public function getProvidedInfo(){
 		return array(
-				     "date_de_naissance"=>"Date de naissance",
-    "bic_1"=>"BIC",
-    "nom_de_naissance"=>"Nom de famille",
-    "etablissement_1"=>"Etablissement bancaire",
-    "iban_1"=>"IBAN",
-    "lieu_de_naissance"=>"Ville de naissance",
-    "prenoms"=>"Prénom(s)",
-    "pays_de_naissance"=>"Pays de naissance",
-    "sexe"=>"Sexe"
+					"date_de_naissance"=>"Date de naissance",
+				    "bic_1"=>"BIC",
+				    "nom_de_naissance"=>"Nom de famille",
+				    "etablissement_1"=>"Etablissement bancaire",
+				    "iban_1"=>"IBAN",
+				    "lieu_de_naissance"=>"Ville de naissance",
+				    "prenoms"=>"Prénom(s)",
+				    "pays_de_naissance"=>"Pays de naissance",
+				    "sexe"=>"Sexe"
 				);
 	}
 
