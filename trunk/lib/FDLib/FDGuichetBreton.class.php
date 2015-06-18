@@ -32,6 +32,9 @@ class FDGuichetBreton extends FournisseurDonnees {
 	public function getInfo($access_token){
 		$info = parent::getInfo($access_token);
 		$result = array();
+		if (!$info['records']){
+			return $result;
+		}
 		$result['rfr'] = $info['records'][0]['fields']['rfr'];
 		return $result;
 	}
