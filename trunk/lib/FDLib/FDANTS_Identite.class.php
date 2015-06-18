@@ -1,7 +1,7 @@
 <?php
 //https://datafranceconnect.opendatasoft.com/api/records/1.0/search?dataset=ants_identite
 
-class FDANTSIdentite extends FournisseurDonnees {
+class FDANTS_Identite extends FournisseurDonnees {
 
 	public function getId(){
 		return "fd_ants_identite";
