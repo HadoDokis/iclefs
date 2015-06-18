@@ -27,9 +27,9 @@ class FranceConnect {
 		$this->url_callback = $url_callback;
 	}
 	
-	public function authenticationRedirect($url_callback, $sup_scope = array()){
+	public function authenticationRedirect($url_callback, $sup_scope = array(),$id_btn = -1){
 		$_SESSION[self::OPENID_SESSION_TOKEN] = $this->getRandomToken();
-		$state = "token={$_SESSION[self::OPENID_SESSION_TOKEN]}";
+		$state = "token={$_SESSION[self::OPENID_SESSION_TOKEN]}&id_btn=-1";
 		
 		$_SESSION[self::OPENID_SESSION_NONCE] = $this->getRandomToken();
 		
@@ -59,13 +59,14 @@ class FranceConnect {
 		}
 		
 		$state = $this->recupGET('state');
-		$this->verifToken($state);
+		$id_btn = $this->verifToken($state);
 		
 		$code =$this->recupGET('code');
 		$access_token = $this->getAccessToken($code);
 				
 		$user_info = $this->getInfoFromFI($access_token);
 		$user_info['access_token'] = $access_token;
+		$user_info['id_btn'] = $id_btn;
 		return $user_info;	
 	}
 	
@@ -81,7 +82,8 @@ class FranceConnect {
 		if ($token != $_SESSION[self::OPENID_SESSION_TOKEN]){
 			throw new Exception("Le token ne correspond pas");
 		}
-		return true;
+		$id_btn = $state_array['id_btn'];
+		return $id_btn;
 	}
 	
 	private function getAccessToken($code){

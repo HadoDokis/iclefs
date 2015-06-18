@@ -11,4 +11,13 @@ class ButtonDataSQL extends SQL {
 		return $this->query($sql,$id_button);
 	}
 	
+	public function getIdFDList($id_btn){
+		$sql = "SELECT DISTINCT id_fd " .
+				" FROM buttons_data ".
+				" JOIN buttons ON buttons_data.id_button=buttons.id_btn ". 
+				" WHERE id_btn = ?";
+		return $this->queryOneCol($sql,$id_btn);
+	}
+	
+	
 }
