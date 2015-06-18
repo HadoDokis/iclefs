@@ -1,10 +1,12 @@
 <?php
  include(__DIR__."/../init.php"); 
 
-$fdEtatCivil = new FDEtatCivil($franceConnect);
-
 $fournisseurDonneesSet = new FournisseurDonneesSet();
-$fournisseurDonneesSet->
 
+$fd_list = $fournisseurDonneesSet->getAllFD($franceConnect);
 
-print_r(array($fdEtatCivil->getAllInfo()));
+foreach($fd_list as $fd){
+	$result[$fd->getId()] = $fd->getAllInfo();
+}
+
+echo json_encode($result);

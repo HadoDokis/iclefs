@@ -1,7 +1,5 @@
 <?php
 
-require_once("FournisseurDonnees.class.php");
-
 class FDTest extends FournisseurDonnees {
 	
 	public function getId(){
@@ -14,6 +12,10 @@ class FDTest extends FournisseurDonnees {
 	
 	public function getProvidedInfo(){
 		return array ("quotient"=>array("attestation_droit","Quotien familiale"));
+	}
+	
+	public function getScope(){
+		return "revenu_fiscal_de_reference";
 	}
 	
 	protected function getFDURL(){

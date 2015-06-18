@@ -9,7 +9,8 @@ abstract class FournisseurDonnees {
 	abstract public function getName();
 	abstract protected function getFDURL();
 	abstract public function getProvidedInfo();
-		
+	abstract public function getScope();	
+	
 	public function __construct(FranceConnect $franceConnect){
 		$this->franceConnect = $franceConnect;
 	}
@@ -20,7 +21,6 @@ abstract class FournisseurDonnees {
 	
 	public function getAllInfo(){
 		return array(
-				"fd_id" => $this->getId(),
 				"fd_name" => $this->getName(),
 				"fd_provided_info" =>$this->getProvidedInfo(),
 				);
