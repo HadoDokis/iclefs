@@ -11,14 +11,14 @@ class FDDGFIPRFR extends FournisseurDonnees {
 	}
 
 	public function getScope(){
-		return "dgfip_rfr";
+		return "ods_dgfip_rfr";
 	}
 
 	public function getProvidedInfo(){
 		return array(
 				"rfr"=>"RFR",
 			    "sexe"=>"Sexe",
-			    "prenom_de_naissance_enfants"=>"Prénom(s)",
+			    "prenom_de_naissance_enfants"=>"Prénom(s) de naissance des enfants",
 			    "date_de_naissance"=>"Date de naissance",
 			    "avisn_3"=>"Avis d'imposition N-3",
 			    "avisn_2"=>"Avis d'imposition N-2",

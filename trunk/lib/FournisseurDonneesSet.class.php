@@ -18,6 +18,8 @@ class FournisseurDonneesSet {
 			$result[] = new $matches[1]($franceConnect); 
 		}
 		
+		//return array(new FDANTS_Identite($franceConnect));
+		
 		return $result;
 	}
 	
