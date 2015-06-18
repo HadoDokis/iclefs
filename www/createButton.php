@@ -10,7 +10,7 @@ try{
 	
 	foreach(array('description','email','name','data','urlCallback') as $key){
 		if (empty($data[$key])){
-			throw new Exception("$key is mandatory !");
+			throw new Exception("$key est obligatoire !");
 		}
 	}
 	
