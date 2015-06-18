@@ -1,9 +1,6 @@
 <?php
-require_once("FournisseurDonnees.class.php");
-
-
 /*
- *    scopes: revenu_fiscal_de_reference    
+ *    scopes:     
  *   Aujourd'hui, des données sont provisionnées pour deux utilisateurs : 
  *
  *  Jean Dupond (login: demo@franceconnect.fr/123)
@@ -18,6 +15,10 @@ class FDGuichetBreton extends FournisseurDonnees {
 	
 	public function getName(){
 		return "Guichet des Bretons";
+	}
+	
+	public function getScope(){
+		return "revenu_fiscal_de_reference";
 	}
 	
 	protected function getFDURL(){

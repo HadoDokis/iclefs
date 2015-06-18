@@ -1,8 +1,6 @@
 <?php
 //https://datafranceconnect.opendatasoft.com/explore/dataset/acteetatcivil_cnf/?tab=metas
 
-require_once("FournisseurDonnees.class.php");
-
 class FDEtatCivil extends FournisseurDonnees {
 	
 	public function getId(){

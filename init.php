@@ -1,14 +1,20 @@
 <?php
 session_start();
 
-require_once(__DIR__."/lib/CurlWrapper.class.php");
-require_once(__DIR__."/lib/FranceConnect.class.php");
-require_once(__DIR__."/lib/FDTest.class.php");
-require_once(__DIR__."/lib/FDGuichetBreton.class.php");
-require_once(__DIR__."/lib/FDEtatCivil.class.php");
+set_include_path(	
+		__DIR__ . "/lib/" . PATH_SEPARATOR .
+		get_include_path()
+);
 
-require_once(__DIR__."/lib/FDEtatCivil.class.php");
+function iclefs_autoload($class_name) {
+	@ $result = include($class_name . '.class.php');
+	if ( ! $result ){
+		return false;
+	}
+	return true;
+}
 
+spl_autoload_register('iclefs_autoload');
 
 require_once("LocalSettings.php");
 
