@@ -273,7 +273,6 @@ angular.module("about/about.tpl.html", []).run(["$templateCache", function($temp
 angular.module("form/form.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("form/form.tpl.html",
     "<div class=\"col-md-12\" ng-if=\"!formSent\">\n" +
-    "    <a href=\"https://iclefs.test.adullact.org/connect.php?id_btn=33\"style=\"padding: 6px 10px; color:black; text-decoration: none; border: 1px solid lightgray;\"onmouseover=\"this.style.background='rgba(0, 0, 255, 0.06)';this.style.cursor='pointer';\"onmouseout=\"this.style.background='';\"><img style=\"width:35px;\" src=\"https://iclefs.test.adullact.org/assets/logo-short.png\">Inscription à la médiathèque</a>\n" +
     "    <div class=\"formulaire col-md-6\">\n" +
     "        <form class=\"form-horizontal\" ng-submit=\"postData()\">\n" +
     "            <fieldset class=\"col-md-6\">\n" +
