@@ -5835,6 +5835,21 @@ header img.franceconnect {
 .list-fd li.selected {
   background-color: rgba(0, 0, 255, 0.06);
 }
+.list-selected li {
+  padding-left: 18px;
+}
+.list-selected li span {
+  color: red;
+  display: none;
+}
+.list-selected li:hover {
+  padding-left: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 255, 0.06);
+}
+.list-selected li:hover span {
+  display: inline-block;
+}
 .list-data {
   margin-top: 70px;
 }

@@ -40,6 +40,9 @@ angular.module( 'iClefs.form', [
 .controller( 'FormCtrl', function FormController( $scope, $http, $location ) {
 
       var context = $location.absUrl().substr(0, $location.absUrl().lastIndexOf("#"));
+      $scope.formSent = false;
+      $scope.formBack = false;
+      $scope.btnUrl = "";
 
       $scope.formulaire = {
         name: "",
@@ -68,8 +71,21 @@ angular.module( 'iClefs.form', [
         return angular.equals({}, obj);
       };
 
+      $scope.removeData = function(fdId, dataId) {
+          if($scope.isDataSelectedWithFd(fdId, dataId)) {
+              $scope.selectedData[fdId].splice($scope.selectedData[fdId].indexOf(dataId), 1);
+              if ($scope.selectedData[fdId].length === 0) {
+                  delete $scope.selectedData[fdId];
+              }
+          }
+      };
+
       $scope.selectFd = function(data) {
         $scope.selectedFd = data;
+      };
+
+      $scope.isDataSelectedWithFd = function(fdId, key) {
+          return $scope.selectedData[fdId] && $scope.selectedData[fdId].indexOf(key) != -1;
       };
 
       $scope.isDataSelected = function(data) {
@@ -91,9 +107,14 @@ angular.module( 'iClefs.form', [
       };
 
       $scope.postData = function() {
+        $scope.formSent = true;
         $scope.formulaire.data = $scope.selectedData;
-        $http.post(context + 'createButton.php', $scope.formulaire).then(function(response) {
-          console.log(response);
+        $http.post(context + 'createButton.php', $scope.formulaire).success(function(data) {
+          $scope.buttonCreated = data;
+          $scope.formBack = true;
+        }).error(function(data) {
+          $scope.buttonCreated = data;
+          $scope.formBack = true;
         });
       };
 })
