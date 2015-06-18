@@ -19,5 +19,10 @@ class ButtonDataSQL extends SQL {
 		return $this->queryOneCol($sql,$id_btn);
 	}
 	
+	public function getFdData($id_btn,$id_fd){
+		$sql = "SELECT data FROM buttons_data WHERE id_button=? AND id_fd=?";
+		return $this->queryOneCol($sql,$id_btn,$id_fd);
+	}
+	
 	
 }
