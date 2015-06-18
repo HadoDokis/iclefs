@@ -5863,3 +5863,7 @@ header img.franceconnect {
 .list-data li.selected {
   background-color: rgba(148, 255, 119, 0.6);
 }
+pre {
+  white-space: pre-wrap;
+  text-align: center;
+}
