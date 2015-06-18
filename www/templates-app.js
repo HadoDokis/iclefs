@@ -357,6 +357,11 @@ angular.module("form/form.tpl.html", []).run(["$templateCache", function($templa
     "        <pre class=\"col-md-6\">\n" +
     "            {{generateButtonCode(true)}}\n" +
     "        </pre>\n" +
+    "\n" +
+    "        <div class=\"col-md-2 col-md-offset-5\">\n" +
+    "            <p>QR Code du lien :</p>\n" +
+    "            <qrcode data=\"{{buttonCreated.response.url_btn}}\" version=\"4\" size=\"150\" download></qrcode>\n" +
+    "        </div>\n" +
     "    </div>\n" +
     "</div>");
 }]);

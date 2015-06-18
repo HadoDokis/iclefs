@@ -3,7 +3,8 @@ angular.module( 'iClefs', [
   'templates-common',
   'iClefs.form',
   'iClefs.about',
-  'ui.router'
+  'ui.router',
+  'monospaced.qrcode'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {
