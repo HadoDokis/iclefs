@@ -16,7 +16,6 @@ if ($id_btn == -1){
 		$_SESSION['fd_user_info'][$fd->getId()] = $fd->getInfo($access_token);
 	}
 	header("Location: test.php");
-	
 } 
 	
 $buttonDataSQL = new ButtonDataSQL($sqlQuery);
