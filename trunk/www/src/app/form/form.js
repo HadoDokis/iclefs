@@ -37,7 +37,7 @@ angular.module( 'iClefs.form', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'FormCtrl', function FormController( $scope, $http, $location ) {
+.controller( 'FormCtrl', function FormController( $scope, $http, $location, $sce ) {
 
       var context = $location.absUrl().substr(0, $location.absUrl().lastIndexOf("#"));
       $scope.formSent = false;
@@ -56,7 +56,7 @@ angular.module( 'iClefs.form', [
       $scope.selectedData = {};
 
       var initCtrl = function() {
-        $http.get(context + 'listData.php').then(function(response) {
+        $http.get('/test/listData.php').then(function(response) {
           $scope.dataAvailable = response.data;
         });
       };
@@ -109,13 +109,23 @@ angular.module( 'iClefs.form', [
       $scope.postData = function() {
         $scope.formSent = true;
         $scope.formulaire.data = $scope.selectedData;
-        $http.post(context + 'createButton.php', $scope.formulaire).success(function(data) {
+        $http.post('/test/createButton.php', $scope.formulaire).success(function(data) {
           $scope.buttonCreated = data;
           $scope.formBack = true;
         }).error(function(data) {
           $scope.buttonCreated = data;
           $scope.formBack = true;
         });
+      };
+
+      $scope.generateButtonCode = function(addHref) {
+          return $sce.trustAsHtml('<a target="_blank" '+(addHref ? 'href="'+$scope.buttonCreated.response.url_btn+'"' : '') +
+          'style="padding: 6px 10px; color:black; text-decoration: none; border: 1px solid lightgray;"' +
+          'onmouseover="this.style.background=\'rgba(0, 0, 255, 0.06)\';this.style.cursor=\'pointer\';"' +
+          'onmouseout="this.style.background=\'\';">' +
+          '<img style="width:35px;" src="https://iclefs.test.adullact.org/assets/logo-short.png">' +
+          $scope.formulaire.name +
+          '</a>');
       };
 })
 

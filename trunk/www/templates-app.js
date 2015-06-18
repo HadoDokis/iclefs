@@ -273,6 +273,7 @@ angular.module("about/about.tpl.html", []).run(["$templateCache", function($temp
 angular.module("form/form.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("form/form.tpl.html",
     "<div class=\"col-md-12\" ng-if=\"!formSent\">\n" +
+    "    <a href=\"https://iclefs.test.adullact.org/connect.php?id_btn=33\"style=\"padding: 6px 10px; color:black; text-decoration: none; border: 1px solid lightgray;\"onmouseover=\"this.style.background='rgba(0, 0, 255, 0.06)';this.style.cursor='pointer';\"onmouseout=\"this.style.background='';\"><img style=\"width:35px;\" src=\"https://iclefs.test.adullact.org/assets/logo-short.png\">Inscription à la médiathèque</a>\n" +
     "    <div class=\"formulaire col-md-6\">\n" +
     "        <form class=\"form-horizontal\" ng-submit=\"postData()\">\n" +
     "            <fieldset class=\"col-md-6\">\n" +
@@ -290,7 +291,7 @@ angular.module("form/form.tpl.html", []).run(["$templateCache", function($templa
     "                </div>\n" +
     "                <div class=\"form-group\">\n" +
     "                    <label for=\"mail\">Courriel</label>\n" +
-    "                    <input type=\"email\" class=\"form-control\" id=\"mail\" placeholder=\"Courriel\" ng-model=\"formulaire.email\">\n" +
+    "                    <input type=\"email\" class=\"form-control\" id=\"mail\" placeholder=\"Courriel\" ng-model=\"formulaire.email\" required>\n" +
     "                </div>\n" +
     "            </fieldset>\n" +
     "\n" +
@@ -342,24 +343,21 @@ angular.module("form/form.tpl.html", []).run(["$templateCache", function($templa
     "<div class=\"col-md-12 col-md-offset-3\" ng-if=\"formSent && formBack\">\n" +
     "    <span class=\"text-danger\" ng-if=\"buttonCreated.code !== '200'\">Erreur lors de la génération du bouton : {{buttonCreated.message}}</span>\n" +
     "    <div ng-if=\"buttonCreated.code === '200'\">\n" +
-    "        <span class=\"text-success\">Bouton créé avec succès !</span>\n" +
+    "        <p class=\"text-success\">Bouton créé avec succès !</p>\n" +
     "\n" +
     "        <!-- Image BTN -->\n" +
     "\n" +
     "        <!-- balise <code> -->\n" +
-    "        <br/>\n" +
-    "        <span class=\"btn btn-default\">\n" +
-    "            <img src=\"assets/logo-short.png\">\n" +
-    "            {{formulaire.name}}\n" +
-    "        </span>\n" +
+    "        <p class=\"text-info\">\n" +
+    "            Exemple du rendu du bouton :\n" +
+    "        </p>\n" +
+    "        <div ng-bind-html=\"generateButtonCode(false)\"></div>\n" +
     "\n" +
-    "        <span>\n" +
     "\n" +
-    "        </span>\n" +
-    "        <code>\n" +
-    "\n" +
-    "            {{buttonCreated.response.url_btn}}\n" +
-    "        </code>\n" +
+    "        <p>Vous pouvez copier/coller le code suivant sur votre site web afin d'utiliser ce formulaire :</p>\n" +
+    "        <pre class=\"col-md-6\">\n" +
+    "            {{generateButtonCode(true)}}\n" +
+    "        </pre>\n" +
     "    </div>\n" +
     "</div>");
 }]);
