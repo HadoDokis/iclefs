@@ -29,6 +29,6 @@ try {
 
 } catch (Exception $e){
 	header("HTTP/1.1 500 Internal Server Error");
-	echo "Une erreur est survenu : " . $e->getMessage();
+	echo "Une erreur est survenue : " . $e->getMessage();
 } 
 
