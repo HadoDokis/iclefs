@@ -1,8 +1,6 @@
 <?php
 //https://datafranceconnect.opendatasoft.com/api/records/1.0/search?dataset=situation-pro_contrats
 
-require_once("FournisseurDonnees.class.php");
-
 class FDCNAVContratPro extends FournisseurDonnees {
 
 	public function getId(){
