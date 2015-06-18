@@ -37,7 +37,9 @@ angular.module( 'iClefs.form', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'FormCtrl', function FormController( $scope, $http ) {
+.controller( 'FormCtrl', function FormController( $scope, $http, $location ) {
+
+      var context = $location.absUrl().substr(0, $location.absUrl().lastIndexOf("#"));
 
       $scope.formulaire = {
         name: "",
@@ -51,7 +53,7 @@ angular.module( 'iClefs.form', [
       $scope.selectedData = {};
 
       var initCtrl = function() {
-        $http.get('/listData.php').then(function(response) {
+        $http.get(context + 'listData.php').then(function(response) {
           $scope.dataAvailable = response.data;
         });
       };
@@ -90,7 +92,7 @@ angular.module( 'iClefs.form', [
 
       $scope.postData = function() {
         $scope.formulaire.data = $scope.selectedData;
-        $http.post('/createButton.php', $scope.formulaire).then(function(response) {
+        $http.post(context + 'createButton.php', $scope.formulaire).then(function(response) {
           console.log(response);
         });
       };
