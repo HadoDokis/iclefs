@@ -15,34 +15,24 @@
 
 	<h1>Réception de données France-Connect/i-clefs</h1>
 	
-<h2>Données issues de la connexion France Connect</h2>
-<table>
-	<?php foreach($_SESSION['user_info'] as $key=>$value): ?>
-		<tr>
-			<th><?php echo $key ?></th>
-			<td><?php echo $value ?></td>
-		</tr>
-	<?php endforeach;?>
-</table>
-<h2>Données issues des fournisseurs de données </h2>
-
+<?php foreach($info as $id_fd => $info_fd) : ?>
+<h2><?php echo $info_fd['name']?></h2>	
+	
 <table>
 	<tr>
-		<th>Fournisseur de données</th>
 		<th>Type de données</th>
 		<th>Valeur</th>
 	</tr>
-		<?php foreach($_SESSION['fd_user_info'] as $fd => $info): ?>
-			<?php foreach($info as $key => $value): ?>
+		<?php foreach($info_fd['data'] as  $info_data): ?>
 				<tr>
-					<td><?php echo $fd ?></td>
-					<td><?php echo $key ?></td>
-					<td><?php echo $value ?></td>
+					<td><?php echo $info_data[0] ?></td>
+					<td><?php echo $info_data[1] ?></td>
 				</tr>
-			<?php endforeach;?>
 		<?php endforeach;?>
 	
 </table>
+
+<?php endforeach;?>
 		
 
 </body>
