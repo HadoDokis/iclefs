@@ -16,8 +16,15 @@ class FDEtatCivil extends FournisseurDonnees {
 	}
 	
 	public function getProvidedInfo(){
-		return array (	"sexe"=>"Sexe",
-						"date_de_naissance" => "Date de naissance");
+		return array(
+				"sexe"=>"Sexe",
+			    "date_de_naissance"=>"Date de naissance",
+			    "nom_de_naissance"=>"Nom de famille",
+			    "acte_de_naissance_mairie"=>"Ville de naissance",
+			    "lieu_de_naissance"=>"Code postale ville de naissance",
+			    "prenoms"=>"Prénom(s)",
+			    "pays_de_naissance"=>"Pays de naissance"
+			);
 	}
 	
 	protected function getFDURL(){
