@@ -16,16 +16,16 @@ class FDMENDiplomes extends FournisseurDonnees {
 
 	public function getProvidedInfo(){
 		return array(
-				        "sexe":"Sexe",
-    "mention"=>"Mention",Seri
-    "date_de_naissance"=>"Date de naissance",
-    "serie"=>"Filière",
-    "academie_d_origine"=>"Identifiant d'Académie",
-    "session"=>"Session",
-    "nom_de_naissance"=>"Nom de famille",
-    "examen"=>"Examen",
-    "prenoms"=>"Prénom(s)",
-    "pays_de_naissance"=>"Pays de naissance"
+				"sexe"=>"Sexe",
+			    "mention"=>"Mention",
+			    "date_de_naissance"=>"Date de naissance",
+			    "serie"=>"Filière",
+			    "academie_d_origine"=>"Identifiant d'Académie",
+			    "session"=>"Session",
+			    "nom_de_naissance"=>"Nom de famille",
+			    "examen"=>"Examen",
+			    "prenoms"=>"Prénom(s)",
+			    "pays_de_naissance"=>"Pays de naissance"
 				);
 	}
 
