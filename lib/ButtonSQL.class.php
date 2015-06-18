@@ -9,7 +9,7 @@ class ButtonSQL extends SQL {
 	}
 	
 	public function getInfo($id_button){
-		$sql = "SELECT * FROM buttons WHERE id=?";
+		$sql = "SELECT * FROM buttons WHERE id_btn=?";
 		return $this->queryOne($sql,$id_button);		
 	}
 	

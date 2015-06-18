@@ -50,9 +50,6 @@ foreach($fd_id_list as $fd_id){
 	$mailHTML->setHTMLContent($content);
 	$mailHTML->send();
 	
-	
-	//TODO send mail
-	
 	header("Location: " . $info_button['url_callback']);
 	
 }
