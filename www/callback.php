@@ -19,8 +19,8 @@ if ($id_btn == -1){
 	exit;
 } 
 
-/*$buttonSQL = new ButtonSQL($sqlQuery);
-$info_button = $buttonSQL->getInfo($id_btn);*/
+$buttonSQL = new ButtonSQL($sqlQuery);
+$info_button = $buttonSQL->getInfo($id_btn);
 	
 $buttonDataSQL = new ButtonDataSQL($sqlQuery);
 $fd_id_list = $buttonDataSQL->getIdFDList($id_btn);
@@ -37,7 +37,7 @@ foreach($fd_id_list as $fd_id){
 	$mailHTML->setSubject("[i-clefs] Réception de données");
 	$mailHTML->setFrom("no-reply@iclefs.test.adullact.org");
 	$mailHTML->setReturnPath("no-reply@iclefs.test.adullact.org");
-	$mailHTML->setTo("eric@sigmalis.com");
+	$mailHTML->setTo($info_button['email']);
 	$mailHTML->setCharset("UTF-8");
 	
 	ob_start();
@@ -53,7 +53,7 @@ foreach($fd_id_list as $fd_id){
 	
 	//TODO send mail
 	
-	header("Location: test.php");
+	header("Location: " . $info_button['url_callback']);
 	
 }
 	
