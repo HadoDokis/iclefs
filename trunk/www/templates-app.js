@@ -272,67 +272,94 @@ angular.module("about/about.tpl.html", []).run(["$templateCache", function($temp
 
 angular.module("form/form.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("form/form.tpl.html",
-    "<div class=\"formulaire col-md-6\">\n" +
-    "    <form class=\"form-horizontal\" ng-submit=\"postData()\">\n" +
-    "        <fieldset class=\"col-md-6\">\n" +
+    "<div class=\"col-md-12\" ng-if=\"!formSent\">\n" +
+    "    <div class=\"formulaire col-md-6\">\n" +
+    "        <form class=\"form-horizontal\" ng-submit=\"postData()\">\n" +
+    "            <fieldset class=\"col-md-6\">\n" +
     "\n" +
-    "            <!-- Form Name -->\n" +
-    "            <legend>Formulaire</legend>\n" +
+    "                <!-- Form Name -->\n" +
+    "                <legend>Formulaire</legend>\n" +
     "\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <label for=\"name\">Nom du formulaire</label>\n" +
-    "                <input type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"Nom\" ng-model=\"formulaire.name\" required>\n" +
-    "            </div>\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <label for=\"desc\">Description</label>\n" +
-    "                <input type=\"text\" class=\"form-control\" id=\"desc\" placeholder=\"Description\" ng-model=\"formulaire.description\" required>\n" +
-    "            </div>\n" +
-    "            <div class=\"form-group\">\n" +
-    "                <label for=\"mail\">Courriel</label>\n" +
-    "                <input type=\"email\" class=\"form-control\" id=\"mail\" placeholder=\"Courriel\" ng-model=\"formulaire.email\" required>\n" +
-    "            </div>\n" +
-    "        </fieldset>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                    <label for=\"name\">Nom du formulaire</label>\n" +
+    "                    <input type=\"text\" class=\"form-control\" id=\"name\" placeholder=\"Nom\" ng-model=\"formulaire.name\" required>\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                    <label for=\"desc\">Description</label>\n" +
+    "                    <input type=\"text\" class=\"form-control\" id=\"desc\" placeholder=\"Description\" ng-model=\"formulaire.description\" required>\n" +
+    "                </div>\n" +
+    "                <div class=\"form-group\">\n" +
+    "                    <label for=\"mail\">Courriel</label>\n" +
+    "                    <input type=\"email\" class=\"form-control\" id=\"mail\" placeholder=\"Courriel\" ng-model=\"formulaire.email\">\n" +
+    "                </div>\n" +
+    "            </fieldset>\n" +
     "\n" +
-    "        <fieldset class=\"col-md-6\">\n" +
-    "            <legend>Données sélectionnées</legend>\n" +
-    "            <div>\n" +
-    "                <span ng-if=\"isEmpty(selectedData)\" class=\"text-info\">Aucune donnée n'est actuellement sélectionnée.</span>\n" +
-    "                <ul>\n" +
-    "                    <li ng-repeat=\"dataFd in dataAvailable\" ng-if=\"hasKey(selectedData, dataFd.fd_id)\">\n" +
-    "                        {{dataFd.fd_name}}\n" +
-    "                        <ul>\n" +
-    "                            <li ng-repeat=\"(key, value) in dataFd.fd_provided_info\" ng-if=\"selectedData[dataFd.fd_id].indexOf(key) != -1\">\n" +
-    "                                {{value}}\n" +
-    "                            </li>\n" +
-    "                        </ul>\n" +
-    "                    </li>\n" +
-    "                </ul>\n" +
-    "            </div>\n" +
-    "        </fieldset>\n" +
+    "            <fieldset class=\"col-md-6\">\n" +
+    "                <legend>Données sélectionnées</legend>\n" +
+    "                <div>\n" +
+    "                    <span ng-if=\"isEmpty(selectedData)\" class=\"text-info\">Aucune donnée n'est actuellement sélectionnée.</span>\n" +
+    "                    <ul>\n" +
+    "                        <li ng-repeat=\"dataFd in dataAvailable\" ng-if=\"hasKey(selectedData, dataFd.fd_id)\">\n" +
+    "                            {{dataFd.fd_name}}\n" +
+    "                            <ul class=\"list-selected\">\n" +
+    "                                <li ng-repeat=\"(key, value) in dataFd.fd_provided_info\" ng-if=\"selectedData[dataFd.fd_id].indexOf(key) != -1\" ng-click=\"removeData(dataFd.fd_id,key)\">\n" +
+    "                                    <span class=\"glyphicon glyphicon-remove-circle\"></span>\n" +
+    "                                    {{value}}\n" +
+    "                                </li>\n" +
+    "                            </ul>\n" +
+    "                        </li>\n" +
+    "                    </ul>\n" +
+    "                </div>\n" +
+    "            </fieldset>\n" +
     "\n" +
-    "        <div class=\"col-md-12\">\n" +
-    "            <button type=\"submit\" class=\"btn btn-default\">Envoyer les données</button>\n" +
+    "            <div class=\"col-md-12\">\n" +
+    "                <button type=\"submit\" class=\"btn btn-default\">Envoyer les données</button>\n" +
+    "            </div>\n" +
+    "        </form>\n" +
+    "    </div>\n" +
+    "\n" +
+    "    <div class=\"selectData col-md-6\">\n" +
+    "        <div class=\"col-md-6\">\n" +
+    "            <legend>Fournisseurs de données</legend>\n" +
+    "            <input type=\"search\" class=\"form-control\" id=\"filterData\" placeholder=\"Rechercher une donnée\" ng-model=\"filterData\">\n" +
+    "            <ul class=\"list-fd\">\n" +
+    "                <li ng-repeat=\"dataFd in dataAvailable | filter:filterData\" ng-click=\"selectFd(dataFd)\" ng-class=\"selectedFd.fd_id == dataFd.fd_id ? 'selected' : ''\">\n" +
+    "                    {{dataFd.fd_name}}\n" +
+    "                </li>\n" +
+    "            </ul>\n" +
     "        </div>\n" +
-    "    </form>\n" +
+    "        <div class=\"col-md-6\" ng-if=\"selectedFd\">\n" +
+    "            <legend>Données disponibles</legend>\n" +
+    "            <ul class=\"list-data\">\n" +
+    "                <li ng-repeat=\"(key, value) in selectedFd.fd_provided_info\" ng-class=\"isDataSelected(key) ? 'selected' : ''\" ng-click=\"selectData(key)\">\n" +
+    "                    {{value}}\n" +
+    "                </li>\n" +
+    "            </ul>\n" +
+    "        </div>\n" +
+    "    </div>\n" +
     "</div>\n" +
     "\n" +
-    "<div class=\"selectData col-md-6\">\n" +
-    "    <div class=\"col-md-6\">\n" +
-    "        <legend>Fournisseurs de données</legend>\n" +
-    "        <input type=\"search\" class=\"form-control\" id=\"filterData\" placeholder=\"Rechercher une donnée\" ng-model=\"filterData\">\n" +
-    "        <ul class=\"list-fd\">\n" +
-    "            <li ng-repeat=\"dataFd in dataAvailable | filter:filterData\" ng-click=\"selectFd(dataFd)\" ng-class=\"selectedFd.fd_id == dataFd.fd_id ? 'selected' : ''\">\n" +
-    "                {{dataFd.fd_name}}\n" +
-    "            </li>\n" +
-    "        </ul>\n" +
-    "    </div>\n" +
-    "    <div class=\"col-md-6\" ng-if=\"selectedFd\">\n" +
-    "        <legend>Données disponibles</legend>\n" +
-    "        <ul class=\"list-data\">\n" +
-    "            <li ng-repeat=\"(key, value) in selectedFd.fd_provided_info\" ng-class=\"isDataSelected(key) ? 'selected' : ''\" ng-click=\"selectData(key)\">\n" +
-    "                {{value}}\n" +
-    "            </li>\n" +
-    "        </ul>\n" +
+    "<div class=\"col-md-12 col-md-offset-3\" ng-if=\"formSent && formBack\">\n" +
+    "    <span class=\"text-danger\" ng-if=\"buttonCreated.code !== '200'\">Erreur lors de la génération du bouton : {{buttonCreated.message}}</span>\n" +
+    "    <div ng-if=\"buttonCreated.code === '200'\">\n" +
+    "        <span class=\"text-success\">Bouton créé avec succès !</span>\n" +
+    "\n" +
+    "        <!-- Image BTN -->\n" +
+    "\n" +
+    "        <!-- balise <code> -->\n" +
+    "        <br/>\n" +
+    "        <span class=\"btn btn-default\">\n" +
+    "            <img src=\"assets/logo-short.png\">\n" +
+    "            {{formulaire.name}}\n" +
+    "        </span>\n" +
+    "\n" +
+    "        <span>\n" +
+    "\n" +
+    "        </span>\n" +
+    "        <code>\n" +
+    "\n" +
+    "            {{buttonCreated.response.url_btn}}\n" +
+    "        </code>\n" +
     "    </div>\n" +
     "</div>");
 }]);
