@@ -4,11 +4,33 @@ require_once(__DIR__."/../init.php");
 $_SESSION['user_info'] = $franceConnect->callback();
 $access_token = $_SESSION['user_info']['access_token']; 
 
+
 $fournisseurDonneesSet = new FournisseurDonneesSet();
 $fd_list = $fournisseurDonneesSet->getAllFD($franceConnect);
 
-foreach($fd_list as $fd){
-	$_SESSION['fd_user_info'][$fd->getId()] = $fd->getInfo($access_token);
-}
+$id_btn = $_SESSION['user_info']['id_btn'];
 
-header("Location: index.php");
+
+if ($id_btn == -1){
+	foreach($fd_list as $fd){
+		$_SESSION['fd_user_info'][$fd->getId()] = $fd->getInfo($access_token);
+	}
+	header("Location: index.php");
+	
+} 
+	
+$buttonDataSQL = new ButtonDataSQL($sqlQuery);
+$fd_id_list = $buttonDataSQL->getIdFDList($id_btn);
+foreach($fd_id_list as $fd_id){
+	if (empty($fd_list[$fd_id])){
+		continue;
+	}
+	$fd = $fd_list[$fd_id];
+	$_SESSION['fd_user_info'][$fd->getId()] = $fd->getInfo($access_token);
+
+	header("Location: index.php");
+	
+}
+	
+
+

@@ -15,10 +15,10 @@ class FournisseurDonneesSet {
 		foreach($glob_all as $class_file){
 			require_once($class_file);
 			preg_match("#/([^/]*).class.php$#",$class_file,$matches);
-			$result[] = new $matches[1]($franceConnect); 
+			$fd = new $matches[1]($franceConnect);
+
+			$result[$fd->getId()] = $fd;
 		}
-		
-		//return array(new FDANTS_Identite($franceConnect));
 		
 		return $result;
 	}
