@@ -16,18 +16,18 @@ class FDCAFQF extends FournisseurDonnees {
 
 	public function getProvidedInfo(){
 		return array(
-				    "nombre_d_enfants":"Nombre d'enfant",
-    "sexe"=>"SQexe",
-    "date_de_naissance"=>"Date de naissance",
-    "quotient_familial"=>"Quotient familial",
-    "hypothese_caf"=>"Hypothèse CAF",
-    "attestation_droits"=>"Attestation de droits",
-    "ayants_droits"=>"Ayants droits",
-    "nom_de_naissance"=>"Nom de famille",
-    "prestations_caf_mensuelles"=>"Prestations CAF Mensuelles",
-    "prenoms"=>"Prénom(s)",
-    "pays_de_naissance"=>"Pays de naissance",
-    "situation_foyer"=>"Situation du foyer"
+				"nombre_d_enfants"=>"Nombre d'enfant",
+			    "sexe"=>"SQexe",
+			    "date_de_naissance"=>"Date de naissance",
+			    "quotient_familial"=>"Quotient familial",
+			    "hypothese_caf"=>"Hypothèse CAF",
+			    "attestation_droits"=>"Attestation de droits",
+			    "ayants_droits"=>"Ayants droits",
+			    "nom_de_naissance"=>"Nom de famille",
+			    "prestations_caf_mensuelles"=>"Prestations CAF Mensuelles",
+			    "prenoms"=>"Prénom(s)",
+			    "pays_de_naissance"=>"Pays de naissance",
+			    "situation_foyer"=>"Situation du foyer"
 				);
 	}
 
