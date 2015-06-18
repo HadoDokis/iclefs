@@ -20,4 +20,8 @@ require_once("LocalSettings.php");
 
 $franceConnect = new FranceConnect($france_connect_base_url, $client_id,$secret_id,$url_callback);
 
+$sqlQuery = new SQLQuery(BD_DSN,BD_USER,BD_PASS);
+
+
+
 header("Content-type: text/html; charset=utf-8");

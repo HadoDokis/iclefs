@@ -11,7 +11,7 @@ class FDTest extends FournisseurDonnees {
 	}
 	
 	public function getProvidedInfo(){
-		return array ("quotient"=>array("attestation_droit","Quotien familiale"));
+		return array ("quotient"=>"Quotien familiale");
 	}
 	
 	public function getScope(){

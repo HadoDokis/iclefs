@@ -26,7 +26,7 @@ class FDGuichetBreton extends FournisseurDonnees {
 	}
 	
 	public function getProvidedInfo(){
-		return array ("rfr"=>array("revenu_fiscal_de_reference","Revenu fiscal de référence"));
+		return array ("rfr"=>"Revenu fiscal de référence");
 	}
 	
 	public function getInfo($access_token){
