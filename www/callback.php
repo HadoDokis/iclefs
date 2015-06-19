@@ -24,8 +24,19 @@ $info = array();
 
 $info['identite_pivot'] = array('name'=>'Identité','data'=>array());
 
-foreach(array('birthcountry','birthdate',"given_name",'family_name','gender','preferred_username') as $data_id){
-	$info['identite_pivot']['data'][$data_id] = $_SESSION['user_info'][$data_id];
+$identite_pivot = array('birthcountry' => 'Pays de naissance',
+						'birthdate' => 'Date de naissane',
+						"given_name" => 'Prénom',
+						'family_name'=>'Nom',
+						'gender' => 'Sexe',
+						'preferred_username' => "Nom d'usage");
+
+
+foreach($identite_pivot as $data_id => $data_libelle){
+	if (empty($_SESSION['user_info'][$data_id])){
+		continue;
+	}
+	$info['identite_pivot']['data'][$data_id] = array($data_libelle,$_SESSION['user_info'][$data_id]);
 }
 
 
@@ -76,6 +87,8 @@ ob_end_clean();
 
 $mailHTML->setHTMLContent($content);
 $mailHTML->send();
+
+file_put_contents("/tmp/mail.test", $content);
 
 header("Location: " . $info_button['url_callback']);
 
