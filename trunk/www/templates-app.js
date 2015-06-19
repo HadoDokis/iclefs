@@ -339,32 +339,37 @@ angular.module("form/form.tpl.html", []).run(["$templateCache", function($templa
     "    </div>\n" +
     "</div>\n" +
     "\n" +
-    "<div class=\"col-md-12 col-md-offset-3\" ng-if=\"formSent && formBack\">\n" +
-    "    <span class=\"text-danger\" ng-if=\"buttonCreated.code !== '200'\">Erreur lors de la génération du bouton : {{buttonCreated.message}}</span>\n" +
-    "    <div ng-if=\"buttonCreated.code === '200'\">\n" +
-    "        <p class=\"text-success\">Bouton créé avec succès !</p>\n" +
+    "<div class=\"row\" ng-if=\"formSent && formBack\">\n" +
+    "    <div class=\"col-md-12 col-md-offset-3\">\n" +
+    "        <span class=\"text-danger\" ng-if=\"buttonCreated.code !== '200'\">Erreur lors de la génération du bouton : {{buttonCreated.message}}</span>\n" +
+    "        <div ng-if=\"buttonCreated.code === '200'\">\n" +
+    "            <p class=\"text-success\">Bouton créé avec succès !</p>\n" +
     "\n" +
-    "        <!-- Image BTN -->\n" +
+    "            <!-- Image BTN -->\n" +
     "\n" +
-    "        <!-- balise <code> -->\n" +
-    "        <p class=\"text-info\">\n" +
-    "            Exemple du rendu du bouton :\n" +
-    "        </p>\n" +
-    "        <div ng-bind-html=\"generateButtonCode(false)\"></div>\n" +
+    "            <!-- balise <code> -->\n" +
+    "            <p class=\"text-info\">\n" +
+    "                Exemple du rendu du bouton :\n" +
+    "            </p>\n" +
+    "            <div ng-bind-html=\"generateButtonCode(false)\"></div>\n" +
     "\n" +
     "\n" +
-    "        <p>Vous pouvez copier/coller le code suivant sur votre site web afin d'utiliser ce formulaire :</p>\n" +
-    "        <pre class=\"col-md-6\">\n" +
-    "            {{generateButtonCode(true)}}\n" +
-    "        </pre>\n" +
+    "            <p>Vous pouvez copier/coller le code suivant sur votre site web afin d'utiliser ce formulaire :</p>\n" +
+    "            <pre class=\"col-md-6\">\n" +
+    "                {{generateButtonCode(true)}}\n" +
+    "            </pre>\n" +
     "\n" +
+    "\n" +
+    "        </div>\n" +
     "\n" +
     "    </div>\n" +
     "\n" +
-    "    <div class=\"col-md-2 col-md-offset-5\">\n" +
-    "        <p>QR Code du lien :</p>\n" +
-    "        <qrcode data=\"{{buttonCreated.response.url_btn}}\" version=\"4\" size=\"150\" download></qrcode>\n" +
+    "    <div class=\"col-md-12\">\n" +
+    "        <div class=\"col-md-2  col-md-offset-5\">\n" +
+    "            <p>QR Code du lien :</p>\n" +
+    "            <qrcode data=\"{{buttonCreated.response.url_btn}}\" version=\"4\" size=\"150\" download></qrcode>\n" +
+    "        </div>\n" +
     "    </div>\n" +
-    "\n" +
-    "</div>");
+    "</div>\n" +
+    "");
 }]);

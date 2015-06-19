@@ -119,9 +119,9 @@ angular.module( 'iClefs.form', [
       };
 
       $scope.generateButtonCode = function(addHref) {
-          return $sce.trustAsHtml('<a target="_blank" '+(addHref ? 'href="'+$scope.buttonCreated.response.url_btn+'"' : '') +
-          'style="padding: 6px 10px; color:black; text-decoration: none; border: 1px solid lightgray; font-size:14px;"' +
-          'onmouseover="this.style.background=\'rgba(0, 0, 255, 0.06)\';this.style.cursor=\'pointer\';"' +
+          return $sce.trustAsHtml('<a target="_blank" '+(addHref ? 'href="'+$scope.buttonCreated.response.url_btn+'" ' : ' ') +
+          'style="padding: 6px 10px; color:black; text-decoration: none; border: 1px solid lightgray; font-size:14px;" ' +
+          'onmouseover="this.style.background=\'rgba(0, 0, 255, 0.06)\';this.style.cursor=\'pointer\';" ' +
           'onmouseout="this.style.background=\'\';">' +
           '<img style="width:35px; vertical-align: middle;" src="https://iclefs.test.adullact.org/assets/logo-short.png">' +
           $scope.formulaire.name +
