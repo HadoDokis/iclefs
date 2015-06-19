@@ -48,7 +48,7 @@ angular.module( 'iClefs.form', [
         name: "",
         description: "",
         email: "",
-        urlCallback: document.referrer || "http://localhost/"
+        urlCallback: document.referrer || (context + "#/valid")
       };
 
       $scope.filterData = "";

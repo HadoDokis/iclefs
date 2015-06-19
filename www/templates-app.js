@@ -1,4 +1,4 @@
-angular.module('templates-app', ['about/about.tpl.html', 'form/form.tpl.html']);
+angular.module('templates-app', ['about/about.tpl.html', 'form/form.tpl.html', 'valid/valid.tpl.html']);
 
 angular.module("about/about.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("about/about.tpl.html",
@@ -370,6 +370,15 @@ angular.module("form/form.tpl.html", []).run(["$templateCache", function($templa
     "            <qrcode data=\"{{buttonCreated.response.url_btn}}\" version=\"4\" size=\"150\" download></qrcode>\n" +
     "        </div>\n" +
     "    </div>\n" +
+    "</div>\n" +
+    "");
+}]);
+
+angular.module("valid/valid.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("valid/valid.tpl.html",
+    "<div class=\"col-md-12\" style=\"text-align: center;\">\n" +
+    "    <span class=\"glyphicon glyphicon-ok text-success\" style=\"font-size: 50px;\"></span>\n" +
+    "    <p style=\"font-size: 30px;\">Merci d'avoir validé ce formulaire</p>\n" +
     "</div>\n" +
     "");
 }]);
