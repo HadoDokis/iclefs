@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="iClefs" ng-controller="AppCtrl">
+  <head>
+    <title ng-bind="pageTitle"></title>
+
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- compiled CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/ngbp-0.3.2.css" />
+
+    <!-- compiled JavaScript -->
+    <script type="text/javascript" src="vendor/angular/angular.js"></script>
+    <script type="text/javascript" src="vendor/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="vendor/placeholders/angular-placeholders-0.0.1-SNAPSHOT.min.js"></script>
+    <script type="text/javascript" src="vendor/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="vendor/qrcode-generator/js/qrcode.js"></script>
+    <script type="text/javascript" src="src/app/app.js"></script>
+    <script type="text/javascript" src="src/app/form/form.js"></script>
+    <script type="text/javascript" src="src/app/valid/valid.js"></script>
+    <script type="text/javascript" src="src/common/qrcode/qrcode.js"></script>
+    <script type="text/javascript" src="templates-common.js"></script>
+    <script type="text/javascript" src="templates-app.js"></script>
+
+  </head>
+  <body>
+    <header>
+      <img src="assets/logo.jpg" class="iclefs">
+      <img src="assets/logo-complet1.png" class="franceconnect">
+    </header>
+
+    <div class="col-md-12" ui-view="main"></div>
+
+    <footer class="footer">
+      <div class="container">
+      </div>
+    </footer>
+  </body>
+</html>
