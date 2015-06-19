@@ -2,6 +2,7 @@
 require_once(__DIR__."/../init.php");
 
 $_SESSION['user_info'] = $franceConnect->callback();
+
 $access_token = $_SESSION['user_info']['access_token']; 
 
 
@@ -24,6 +25,15 @@ $info_button = $buttonSQL->getInfo($id_btn);
 	
 $buttonDataSQL = new ButtonDataSQL($sqlQuery);
 $fd_id_list = $buttonDataSQL->getIdFDList($id_btn);
+
+$info = array();
+
+$info['identite_pivot'] = array('name'=>'Identité','data'=>array());
+
+foreach(array('birthcountry','birthdate',"given_name",'family_name','gender','preferred_username') as $data_id){
+	$info['identite_pivot']['data'] = $_SESSION['user_info'][$data_id];
+}
+
 
 foreach($fd_id_list as $fd_id){
 	if (empty($fd_list[$fd_id])){

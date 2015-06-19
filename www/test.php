@@ -1,4 +1,6 @@
 <?php include(__DIR__."/../init.php"); 
+
+print_r($_SESSION['user_info']);
 //test
 ?>
 
