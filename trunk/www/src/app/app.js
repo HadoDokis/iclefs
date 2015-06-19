@@ -2,7 +2,7 @@ angular.module( 'iClefs', [
   'templates-app',
   'templates-common',
   'iClefs.form',
-  'iClefs.about',
+  'iClefs.valid',
   'ui.router',
   'monospaced.qrcode'
 ])
