@@ -20,19 +20,20 @@ if ($id_btn == -1){
 	exit;
 } 
 
-$buttonSQL = new ButtonSQL($sqlQuery);
-$info_button = $buttonSQL->getInfo($id_btn);
-	
-$buttonDataSQL = new ButtonDataSQL($sqlQuery);
-$fd_id_list = $buttonDataSQL->getIdFDList($id_btn);
-
 $info = array();
 
 $info['identite_pivot'] = array('name'=>'Identité','data'=>array());
 
 foreach(array('birthcountry','birthdate',"given_name",'family_name','gender','preferred_username') as $data_id){
-	$info['identite_pivot']['data'] = $_SESSION['user_info'][$data_id];
+	$info['identite_pivot']['data'][$data_id] = $_SESSION['user_info'][$data_id];
 }
+
+
+$buttonSQL = new ButtonSQL($sqlQuery);
+$info_button = $buttonSQL->getInfo($id_btn);
+	
+$buttonDataSQL = new ButtonDataSQL($sqlQuery);
+$fd_id_list = $buttonDataSQL->getIdFDList($id_btn);
 
 
 foreach($fd_id_list as $fd_id){
