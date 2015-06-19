@@ -61,7 +61,7 @@ angular.module("form/form.tpl.html", []).run(["$templateCache", function($templa
     "        <div class=\"col-md-6\" ng-if=\"selectedFd\">\n" +
     "            <legend>Données disponibles</legend>\n" +
     "            <ul class=\"list-data\">\n" +
-    "                <li ng-repeat=\"(key, value) in selectedFd.fd_provided_info\" ng-class=\"isDataSelected(key) ? 'selected' : ''\" ng-click=\"selectData(key)\">\n" +
+    "                <li ng-repeat=\"(key, value) in selectedFd.fd_provided_info | filter:filterData\" ng-class=\"isDataSelected(key) ? 'selected' : ''\" ng-click=\"selectData(key)\">\n" +
     "                    {{value}}\n" +
     "                </li>\n" +
     "            </ul>\n" +
