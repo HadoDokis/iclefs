@@ -1,0 +1,54 @@
+.formulaire {
+  border-right: 1px solid rgba(0, 0, 0, 0.33);
+}
+
+.list-fd {
+  margin-top: 15px;
+  li {
+    list-style: none;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(0, 0, 255, 0.12);
+    }
+    &.selected {
+      background-color: rgba(0, 0, 255, 0.06);
+    }
+  }
+}
+
+.list-selected {
+  li {
+    padding-left: 18px;
+    span {
+      color:red;
+      display: none;
+    }
+    &:hover {
+      padding-left: 0;
+      cursor: pointer;
+      background-color: rgba(0, 0, 255, 0.06);
+      span {
+        display:inline-block;
+      }
+    }
+  }
+}
+
+.list-data {
+  margin-top: 70px;
+  li {
+    list-style: none;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(0, 0, 255, 0.12);
+    }
+    &.selected {
+      background-color: rgba(148, 255, 119, 0.6);
+    }
+  }
+}
+
+pre {
+  white-space: pre-wrap;
+  text-align: center;
+}
