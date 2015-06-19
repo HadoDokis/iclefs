@@ -47,8 +47,7 @@ angular.module( 'iClefs.form', [
       $scope.formulaire = {
         name: "",
         description: "",
-        email: "",
-        urlCallback: document.referrer || (context + "#/valid")
+        email: ""
       };
 
       $scope.filterData = "";
@@ -109,6 +108,7 @@ angular.module( 'iClefs.form', [
       $scope.postData = function() {
         $scope.formSent = true;
         $scope.formulaire.data = $scope.selectedData;
+        $scope.formulaire.urlCallback = context + "#/valid?name="+$scope.formulaire.name;
         $http.post(context + 'createButton.php', $scope.formulaire).success(function(data) {
           $scope.buttonCreated = data;
           $scope.formBack = true;

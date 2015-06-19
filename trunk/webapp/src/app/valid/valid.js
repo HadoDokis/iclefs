@@ -16,7 +16,7 @@ angular.module( 'iClefs.valid', [
   'ui.router'
 ])
 
-/**
+/**)
  * Each section or module of the site can also have its own routes. AngularJS
  * will handle ensuring they are all available at run-time, but splitting it
  * this way makes each module more "self-contained".
@@ -37,7 +37,9 @@ angular.module( 'iClefs.valid', [
 /**
  * And of course we define a controller for our route.
  */
-.controller( 'ValidCtrl', function ValidController( $scope, $http, $location, $sce ) {
+.controller( 'ValidCtrl', function ValidController( $scope, $location ) {
+
+      $scope.formName = $location.search().name;
 
 })
 

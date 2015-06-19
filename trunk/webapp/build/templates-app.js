@@ -108,7 +108,8 @@ angular.module("valid/valid.tpl.html", []).run(["$templateCache", function($temp
   $templateCache.put("valid/valid.tpl.html",
     "<div class=\"col-md-12\" style=\"text-align: center;\">\n" +
     "    <span class=\"glyphicon glyphicon-ok text-success\" style=\"font-size: 50px;\"></span>\n" +
-    "    <p style=\"font-size: 30px;\">Merci d'avoir validé ce formulaire</p>\n" +
+    "    <p style=\"font-size: 30px;\">Merci d'avoir validé le formulaire : {{formName}}</p>\n" +
+    "    <p style=\"font-size: 20px;\">Les documents ont bien été envoyés </p>\n" +
     "</div>\n" +
     "");
 }]);
